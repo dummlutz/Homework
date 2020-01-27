@@ -22,7 +22,7 @@ namespace HomeworkView.Controllers
         // GET: BookKeeping
         public ActionResult Index()
         {
-            int max = 200;
+            int max = 100;
             List<BookKeepingViewModel> listBookKeepingViewModel = new List<BookKeepingViewModel>();
             BookKeepingViewModel bookKeepingViewModel;
 

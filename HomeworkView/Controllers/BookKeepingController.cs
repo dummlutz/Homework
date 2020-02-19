@@ -54,8 +54,8 @@ namespace HomeworkView.Controllers
         {
 
             var list = BookKeepingService.GetData();
-
-            return new CsvActionResult<BookKeepingViewModel>(list, "xxx.csv");
+            string fileName =string.Format("{0}.{1}" ,DateTime.Now.ToString("yyyyMMddHHmmss"), "csv");
+            return new CsvActionResult<BookKeepingViewModel>(list, fileName);
              
         }
 

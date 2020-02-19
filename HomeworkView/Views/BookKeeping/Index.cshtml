@@ -68,6 +68,7 @@
                 <div class="form-group">
                     <div class="col-sm-offset-8 col-sm-4">
                         <button type="submit" class="btn btn-default">送出</button>
+                        @Html.ActionLink("Export", "Export")
                     </div>
                 </div>
             </form>
@@ -82,11 +83,13 @@
                         <th>日期</th>
                         <th>金額</th>
                     </tr>
+
+@{ int count = 1;}
 @foreach (var item in Model)
-{
+{   
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.No)
+        <td>            
+            @(count++)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Category)

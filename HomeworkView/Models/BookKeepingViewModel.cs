@@ -8,8 +8,8 @@ namespace HomeworkView.Models
 {
     public class BookKeepingViewModel
     {
-        public int No { get; set; }
-
+        //public int No { get; set; }
+        public string ID { get; set; }
         public string Category { get; set; }
 
         [DataType(DataType.Currency)]

@@ -14,6 +14,7 @@ namespace HomeworkView.Service
         public static List<BookKeepingViewModel> GetData()
         {
             var data = _HomeworkDbContext.AccountBook.OrderByDescending(x => x.Dateee);
+            
             var list = new List<BookKeepingViewModel>();
             foreach (var item in data)
             {
@@ -33,7 +34,7 @@ namespace HomeworkView.Service
             //            {
             //                ID = q.Id.ToString(),
             //                Amout=q.Amounttt,
-            //                Category = q.Categoryyy.ToString(),
+            //                Category = ((CategoryEnum)q.Categoryyy).GetDescription(),
             //                CreateDate = q.Dateee,
             //                Remark = q.Remarkkk,
             //            };
@@ -41,6 +42,23 @@ namespace HomeworkView.Service
             // ((CategoryEnum)q.Categoryyy).GetDescription(),
             //(CategoryEnum)Enum.ToObject(typeof(CategoryEnum), q.Categoryyy).GetDescription(),
             //return query.ToList();
+        }
+
+        public static AccountBook GetByID(Guid id)
+        {           
+            var data = (AccountBook)_HomeworkDbContext.AccountBook.Find(id);
+            return data;
+        }
+
+        public static AccountBook Update(AccountBook account)
+        {
+            var data =(AccountBook)_HomeworkDbContext.AccountBook.Find(account.Id);
+            data.Amounttt = account.Amounttt;
+            data.Categoryyy = account.Categoryyy;
+            data.Dateee = account.Dateee;
+            data.Remarkkk = account.Remarkkk;
+            var result = _HomeworkDbContext.SaveChanges();
+            return data;
         }
 
     }

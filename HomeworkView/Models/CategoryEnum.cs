@@ -13,6 +13,13 @@ namespace HomeworkView.Models
         [Description("收入")]
         Income
     }
+
+
+    public class CategoryList
+    {
+
+    }
+
     //public class CategoryEnum
     //{
     //}
